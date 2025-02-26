@@ -19,7 +19,7 @@ locals ll
 main:
     mov cs:[ofs], offset  llWrong
     mov cs:[segm], cs
-    mov bx, offset Decision ; 01DC
+    mov bx, offset Decision 
 
     mov dx, offset InitialMessage
     mov ah, 09h
@@ -46,9 +46,9 @@ jne llConfirmation
     mov cx, 9h
     
     repe cmpsb
-    je llRight ; 0142 - 66, 01
+    je llRight
 
-    jmp Decision ; 01FF
+    jmp Decision
 
     llWrong:
     mov dx, offset IncorrectInput
@@ -58,8 +58,7 @@ jne llConfirmation
     mov ax, 4c00h
     int 21h
 
-
-llRight: ;0165
+llRight: 
     mov dx, offset CorrectInput
     mov ah, 09h 
     int 21h
